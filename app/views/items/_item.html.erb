@@ -1,7 +1,11 @@
-<div id="<%= dom_id item %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Title:</strong>
+<div id="<%= dom_id item %>" class="flex items-center gap-2 pt-2">
+  <p>
+    <strong class="">Title:</strong>
     <%= item.title %>
   </p>
 
+  <div class="flex gap-2 ml-auto">
+    <%= button_to "Destroy", item, method: :delete, class: "font-medium text-red-600 px-2 bg-red-50 rounded-lg" %>
+    <%= link_to "Show", item, class: "font-medium px-2 bg-gray-50 rounded-lg" %>
+  </div>
 </div>
