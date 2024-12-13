@@ -30,6 +30,9 @@ class ItemsController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(@item, partial: "form", locals: { item: @item }, method: :morph)
+        end
       end
     end
   end
